@@ -8,11 +8,15 @@ let _api = new axios.create({
 })
 
 let _state = {
-  questions: []
+  questions: [],
+  score: 0
 }
 let _subscribers = {
-  questions: []
+  questions: [],
+  score: []
 }
+
+let _score = 0;
 
 function _setState(propName, data) {
   _state[propName] = data
@@ -38,6 +42,10 @@ export default class QuestionService {
       .catch(err => {
         console.error(err)
       })
+
+  }
+
+  checkAnswer(answer, question) {
 
   }
 }

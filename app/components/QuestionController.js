@@ -5,7 +5,6 @@ import QuestionService from "./QuestionService.js"
 let _qService = new QuestionService();
 
 function _drawQuestions() {
-  debugger
   let questions = _qService.Questions
   let template = ''
   for (let i = 0; i < questions.length; i++) {
@@ -19,7 +18,12 @@ function _drawQuestions() {
 //Public
 export default class QuestionController {
   constructor() {
+
     _qService.addSubscriber('questions', _drawQuestions)
     _qService.getApiQuestions();
+  }
+
+  checkAnswer(answer) {
+    _qService.checkAnswer(answer)
   }
 }
